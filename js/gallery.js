@@ -90,3 +90,16 @@ function GalleryImage() {
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 	var Img;
 }
+
+function fetchJSON() {
+	mRequest.onreadystatechange = function() {
+		if (this.readyState >= 200 && this.status < 400) {
+			var mJson = JSON.parse(mRequest.responseText);
+			console.log(mJson);
+		} else {
+			console.log('We connected to the server but returned an error')
+		}
+		mRequest.getAllResponseHeaders("GET", mUrl, true)
+		mRequest.send()
+	}
+}
