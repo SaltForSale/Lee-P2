@@ -54,7 +54,7 @@ function swapPhoto() {
 
 	mLastFrameTime=0;
 	mCurrentIndex+=1;
-	
+
 	//with a new image from your images array which is loaded 
 	//from the JSON string
 	console.log('swap photo');
@@ -121,5 +121,14 @@ function fetchJSON() {
 		}
 		mRequest.getAllResponseHeaders("GET", mUrl, true)
 		mRequest.send()
+	}
+}
+function iterateJSON(mJSON) {
+	for (x = 0; x < mJSON.images.length; x++) {
+		mImages[x] = new GalleryImage();
+		mImages[x].location = mJSON.images[x].imgLocation;
+		mImages[x].description = mJSON.images[x].description;
+		mImages[x].date = mJSON.images[x].date;
+		mImages[x].img = mJSON.images[x].imgPath;
 	}
 }
