@@ -36,24 +36,25 @@ function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	
-	if (mCurrentIndex>=mImages.length){
-		mCurrentIndex=0;
+	if (mCurrentIndex >= mImages.length){
+		mCurrentIndex = 0;
 	}
-	if (mCurrentIndex<0){
-		mCurrentIndex=mImages.length-1;
+	if (mCurrentIndex < 0){
+		mCurrentIndex = mImages.length - 1;
 	}
-	document.getElementById('photo').src=mImages[mCurrentIndex].img;
-	var loc=document.getElementsByClassName('location');
-	loc[0].innerHTML="Location: " + mImages[mCurrentIndex].location;
+	
+	document.getElementById('photo').src = mImages[mCurrentIndex].img;
+	let location = document.getElementsByClassName('location')[0];
+	location.innerHTML = "Location: " + mImages[mCurrentIndex].location;
 
-	var dec=document.getElementsByClassName('description');
-	dec[0].innerHTML="Description: " + mImages[mCurrentIndex].description;
+	let description = document.getElementsByClassName('description')[0];
+	description.innerHTML = "Description: " + mImages[mCurrentIndex].description;
 
-	var dt=document.getElementsByClassName('date');
-	dt[0].innerHTML="Date: " + mImages[mCurrentIndex].date;
+	let date = document.getElementsByClassName('date')[0];
+	date.innerHTML = "Date: " + mImages[mCurrentIndex].date;
 
-	mLastFrameTime=0;
-	mCurrentIndex+=1;
+	mLastFrameTime = 0;
+	mCurrentIndex += 1;
 
 	//with a new image from your images array which is loaded 
 	//from the JSON string
@@ -89,7 +90,8 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	//$('.details').eq(0).hide();
+	fetchJSON(mUrl);
 	
 });
 
@@ -108,27 +110,31 @@ function GalleryImage() {
 	//3. the date when the photo was taken
 	var date;
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	var Img;
+	var img;
 }
 
-function fetchJSON() {
+function fetchJSON(mUrl) {
+
 	mRequest.onreadystatechange = function() {
-		if (this.readyState >= 200 && this.status < 400) {
+		if (this.readyState == 4 && this.status == 200) {
 			var mJson = JSON.parse(mRequest.responseText);
 			console.log(mJson);
+			iterateJSON(mJson);
+			
 		} else {
 			console.log('We connected to the server but returned an error')
 		}
-		mRequest.getAllResponseHeaders("GET", mUrl, true)
-		mRequest.send()
+		
 	}
+	mRequest.open('GET', mUrl)
+	mRequest.send()
 }
-function iterateJSON(mJSON) {
-	for (x = 0; x < mJSON.images.length; x++) {
+function iterateJSON(mJson) {
+	for (x = 0; x < mJson.images.length; x++) {
 		mImages[x] = new GalleryImage();
-		mImages[x].location = mJSON.images[x].imgLocation;
-		mImages[x].description = mJSON.images[x].description;
-		mImages[x].date = mJSON.images[x].date;
-		mImages[x].img = mJSON.images[x].imgPath;
+		mImages[x].location = mJson.images[x].imgLocation;
+		mImages[x].description = mJson.images[x].description;
+		mImages[x].date = mJson.images[x].date;
+		mImages[x].img = mJson.images[x].imgPath;
 	}
 }
