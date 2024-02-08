@@ -1,15 +1,15 @@
 // requestAnim shim layer by Paul Irish
-    window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function(/* function */ callback, /* DOMElement */ element){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
-  
+window.requestAnimFrame = (function () {
+	return window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		window.oRequestAnimationFrame ||
+		window.msRequestAnimationFrame ||
+		function (/* function */ callback, /* DOMElement */ element) {
+			window.setTimeout(callback, 1000 / 60);
+		};
+})();
+
 
 // example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
 
@@ -18,7 +18,7 @@ animate();
 var mLastFrameTime = 0;
 var mWaitTime = 5000; //time in ms
 function animate() {
-    requestAnimFrame( animate );
+	requestAnimFrame(animate);
 	var currentTime = new Date().getTime();
 	if (mLastFrameTime === 0) {
 		mLastFrameTime = currentTime;
@@ -35,14 +35,14 @@ function animate() {
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
-	
-	if (mCurrentIndex >= mImages.length){
+
+	if (mCurrentIndex >= mImages.length) {
 		mCurrentIndex = 0;
 	}
-	if (mCurrentIndex < 0){
+	if (mCurrentIndex < 0) {
 		mCurrentIndex = mImages.length - 1;
 	}
-	
+
 	document.getElementById('photo').src = mImages[mCurrentIndex].img;
 	let location = document.getElementsByClassName('location')[0];
 	location.innerHTML = "Location: " + mImages[mCurrentIndex].location;
@@ -81,22 +81,22 @@ var mUrl = 'images.json';
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
 function makeGalleryImageOnloadCallback(galleryImage) {
-	return function(e) {
+	return function (e) {
 		galleryImage.img = e.target;
 		mImages.push(galleryImage);
 	}
 }
 
-$(document).ready( function() {
-	
+$(document).ready(function () {
+
 	// This initially hides the photos' metadata information
 	//$('.details').eq(0).hide();
 	fetchJSON(mUrl);
-	
+
 });
 
-window.addEventListener('load', function() {
-	
+window.addEventListener('load', function () {
+
 	console.log('window loaded');
 
 }, false);
@@ -115,16 +115,16 @@ function GalleryImage() {
 
 function fetchJSON(mUrl) {
 
-	mRequest.onreadystatechange = function() {
+	mRequest.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var mJson = JSON.parse(mRequest.responseText);
 			console.log(mJson);
 			iterateJSON(mJson);
-			
+
 		} else {
 			console.log('We connected to the server but returned an error')
 		}
-		
+
 	}
 	mRequest.open('GET', mUrl)
 	mRequest.send()
@@ -138,3 +138,16 @@ function iterateJSON(mJson) {
 		mImages[x].img = mJson.images[x].imgPath;
 	}
 }
+
+$('.moreIndicator').on('click', function () {
+	if ($('.moreIndicator').hasClass("rot90")) {
+		$('.moreIndicator').removeClass("rot90");
+		$('.moreIndicator').addClass("rot270");
+		$('.details').slideToggle();
+
+	} else {
+		$('.moreIndicator').removeClass("rot270");
+		$('.moreIndicator').addClass("rot90");
+		$('.details').slideToggle();
+	}
+})
