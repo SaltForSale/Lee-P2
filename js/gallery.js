@@ -151,3 +151,22 @@ $('.moreIndicator').on('click', function () {
 		$('.details').slideToggle();
 	}
 })
+
+$('#nextPhoto').position({
+	my: 'right',
+	at: 'right',
+	of: '#nav'
+});
+
+
+// Click handler for navigating to the next photo
+$('#nextPhoto').click(function () {
+	swapPhoto()
+});
+
+
+// Click handler for navigating to the previous photo
+$('#prevPhoto').click(function () {
+	mCurrentIndex = mCurrentIndex - 2;
+	swapPhoto()
+});
