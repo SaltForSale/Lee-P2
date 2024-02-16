@@ -2,63 +2,63 @@
     "images": [
         {
             "imgPath": "img/extras/Untitled-1.png",
-            "imgLocation": "Australia",
-            "description": "Loch Ard Gorge",
-            "date": "01/01/2016"
+            "imgLocation": "St. John",
+            "description": "Sad Sitting",
+            "date": "09/03/2022"
         },
         {
             "imgPath": "img/extras/Untitled-2.png",
-            "imgLocation": "Australia",
-            "description": "Loch Ard Gorge",
-            "date": "01/01/2016"
+            "imgLocation": "St. John",
+            "description": "Long Stare",
+            "date": "09/03/2022"
         },
         {
             "imgPath": "img/extras/Untitled-3.png",
-            "imgLocation": "Austria",
-            "description": "Austrian chapel",
-            "date": "01/02/2016"
+            "imgLocation": "St. John",
+            "description": "AJ and I",
+            "date": "09/03/2022"
         },
         {
             "imgPath": "img/extras/Untitled-4.png",
-            "imgLocation": "Paris",
-            "description": "Eiffel Tower",
-            "date": "01/03/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Anime Walking :|",
+            "date": "04/21/2022"
         },
         {
             "imgPath": "img/extras/Untitled-5.png",
-            "imgLocation": "Greece",
-            "description": "Greek coastline",
-            "date": "01/04/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Wave Crash",
+            "date": "04/21/2022"
         },
         {
             "imgPath": "img/extras/Untitled-6.png",
-            "imgLocation": "Hungary",
-            "description": "Budapest skyline",
-            "date": "01/05/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "No Swimming",
+            "date": "04/19/2022"
         },
         {
             "imgPath": "img/extras/Untitled-7.png",
-            "imgLocation": "India",
-            "description": "Taj Mahal",
-            "date": "01/06/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Holy",
+            "date": "04/20/2022"
         },
         {
             "imgPath": "img/extras/Untitled-8.png",
-            "imgLocation": "Italy",
-            "description": "Venice",
-            "date": "01/07/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Breath of the Wild",
+            "date": "04/20/2022"
         },
         {
             "imgPath": "img/extras/Untitled-9.png",
-            "imgLocation": "Japan",
-            "description": "Hirosaki Castle",
-            "date": "01/08/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Pigeon Chest",
+            "date": "04/20/2022"
         },
         {
             "imgPath": "img/extras/Untitled-10.png",
-            "imgLocation": "South Korea",
-            "description": "Seoul",
-            "date": "01/09/2016"
+            "imgLocation": "Kauai, Hawaii",
+            "description": "Looking Back",
+            "date": "04/09/2016"
         }
   ]
 }
