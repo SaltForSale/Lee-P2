@@ -46,13 +46,13 @@ function swapPhoto() {
 	document.getElementById('photo').src = mImages[mCurrentIndex].img;
 	let location = document.getElementsByClassName('location')[0];
 	location.innerHTML = "Location: " + mImages[mCurrentIndex].location;
-
+	//change location
 	let description = document.getElementsByClassName('description')[0];
 	description.innerHTML = "Description: " + mImages[mCurrentIndex].description;
-
+	//change description
 	let date = document.getElementsByClassName('date')[0];
 	date.innerHTML = "Date: " + mImages[mCurrentIndex].date;
-
+	//change date
 	mLastFrameTime = 0;
 	mCurrentIndex += 1;
 
